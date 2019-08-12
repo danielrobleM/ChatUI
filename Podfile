@@ -7,6 +7,7 @@ target 'safe' do
 
   # Pods for safe
   pod 'IGListKit', '~> 3.0'
+  pod 'SDWebImage', '~> 5.0'
 
 
   target 'safeTests' do
