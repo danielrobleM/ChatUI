@@ -26,6 +26,46 @@ class MessagesViewController: UIViewController, MessagesDisplayLogic {
     return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 2)
   }()
 
+  var bottomPadding: CGFloat {
+    get {
+      return self.view.safeAreaInsets.bottom
+    }
+  }
+
+  let heightInputContainer: CGFloat = 46.0
+
+  lazy var inputContainer: InputContainer = {
+    let inputView = InputContainer()
+    inputView.translatesAutoresizingMaskIntoConstraints = false
+    inputView.autoresizingMask = .flexibleHeight
+
+    inputView.onSendButtonPressed = { [weak self] message in
+      self?.onButtonSend(message: message)
+    }
+    inputView.onCameraButtonPressed = {
+      self.onCameraButton()
+    }
+
+    inputView.onGalleryButtonPressed = {
+      self.onGalleryButton()
+    }
+
+    return inputView
+  }()
+
+  override var inputAccessoryView: UIView? {
+    get {
+      return inputContainer
+    }
+  }
+
+  override var canBecomeFirstResponder: Bool {
+    return true
+  }
+
+  private var collectionViewHeight: NSLayoutConstraint?
+
+
   // MARK: Object lifecycle
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -51,7 +91,11 @@ class MessagesViewController: UIViewController, MessagesDisplayLogic {
     router.viewController = viewController
     router.dataStore = interactor
   }
-  
+
+  deinit {
+    NotificationCenter.default.removeObserver(self)
+  }
+
   // MARK: Routing
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let scene = segue.identifier {
@@ -61,22 +105,28 @@ class MessagesViewController: UIViewController, MessagesDisplayLogic {
       }
     }
   }
-  
+
   // MARK: View lifecycle
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    adapter.collectionView = collectionView
+    adapter.dataSource = self
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
     view.addSubview(collectionView)
-    adapter.collectionView = collectionView
-    adapter.dataSource = self
-    doSomething()
+    self.title = "Chat"
+    collectionView.alwaysBounceVertical = true
+    collectionView.keyboardDismissMode = .interactive
+    collectionView.backgroundColor = UIColor(red: 0.1, green: 0.13, blue: 0.17, alpha: 1)
+    setObservers()
   }
 
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
-    collectionView.frame = view.bounds
-    collectionView.keyboardDismissMode = .interactive
-    collectionView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
-    collectionView.backgroundColor = UIColor(red: 0.1, green: 0.13, blue: 0.17, alpha: 1)
+    collectionView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height - bottomPadding - heightInputContainer)
+    collectionView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
     guard let lastComment = messages.last else { return }
     adapter.scroll(to: lastComment, supplementaryKinds: nil, scrollDirection: .vertical, scrollPosition: .centeredVertically, animated: false)
   }
@@ -119,6 +169,63 @@ extension MessagesViewController : ListAdapterDataSource {
   }
 }
 
+extension MessagesViewController {
+  func onButtonSend(message: String) {
+    let id = Int.random(in: 200 ..< 100000)
+    let newMessage = MessageModel(id: id, name: "Daniel", text: message, isUser: true)
+    messages.append(newMessage)
+    self.adapter.performUpdates(animated: true) { (completed) in
+      self.adapter.scroll(to: newMessage, supplementaryKinds: nil, scrollDirection: .vertical, scrollPosition: .centeredVertically, animated: true)
+    }
+  }
+
+  func onCameraButton() {
+    print("Aca se presenta la camara")
+  }
+
+  func onGalleryButton() {
+    print("Aca se presenta la galería")
+  }
+}
+
+// MARK: - Keyboard Notifications
+extension MessagesViewController {
+  private func setObservers() {
+    NotificationCenter.default.addObserver(self, selector: #selector(showKeyboard(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    //    NotificationCenter.default.addObserver(self, selector: #selector(didHideKeyboard(_:)), name: UIResponder.keyboardDidHideNotification, object: nil)
+    //    NotificationCenter.default.addObserver(self, selector: #selector(didShowKeyboard(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+    //    NotificationCenter.default.addObserver(
+    //      self,
+    //      selector: #selector(keyboardWillChangeFrame(_:)),
+    //      name: UIResponder.keyboardWillChangeFrameNotification,
+    //      object: nil
+    //    )
+  }
+
+  @objc private func hideKeyboard(_ notification: Foundation.Notification) {
+//    collectionView.setContentOffset(CGPoint(x: 0, y: self.collectionView.contentOffset.y + keyboardFrame.height - heightInputContainer - bottomPadding), animated: true)
+    collectionView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
+  }
+
+  @objc private func showKeyboard(_ notification: Foundation.Notification) {
+    guard let info = (notification as NSNotification).userInfo,
+      let kbFrame = info[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
+        return
+    }
+    let keyboardFrame = kbFrame.cgRectValue
+
+    let beginFrame = ((notification as NSNotification).userInfo![UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+    let endFrame = ((notification as NSNotification).userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+    let delta = (endFrame.origin.y - beginFrame.origin.y)
+
+    if endFrame.height > 80 {
+      self.collectionView.setContentOffset(CGPoint(x: 0, y: self.collectionView.contentOffset.y + keyboardFrame.height - heightInputContainer - bottomPadding), animated: true)
+      collectionView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 16 + keyboardFrame.height   - heightInputContainer - bottomPadding, right: 0)
+      collectionView.layoutIfNeeded()
+    }
+  }
+}
 
 extension MessagesViewController {
   func generateChat() {

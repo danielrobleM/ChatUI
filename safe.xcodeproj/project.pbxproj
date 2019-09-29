@@ -23,6 +23,7 @@
 		654874A222FF983400CB3DD8 /* MessageModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6548749922FF983400CB3DD8 /* MessageModels.swift */; };
 		654874A422FF983400CB3DD8 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6548749A22FF983400CB3DD8 /* MessageViewController.swift */; };
 		654874A622FF983400CB3DD8 /* MessageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6548749B22FF983400CB3DD8 /* MessageInteractor.swift */; };
+		65A5813B2303B09500737F27 /* InputContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A5813A2303B09500737F27 /* InputContainer.swift */; };
 		65FBF22D22FF9CAD004B2C53 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 65FBF22C22FF9CAD004B2C53 /* Podfile */; };
 		65FBF23022FF9E46004B2C53 /* MessageSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FBF22F22FF9E46004B2C53 /* MessageSectionController.swift */; };
 		65FBF23222FF9EF8004B2C53 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FBF23122FF9EF8004B2C53 /* MessageModel.swift */; };
@@ -72,6 +73,7 @@
 		6548749922FF983400CB3DD8 /* MessageModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModels.swift; sourceTree = "<group>"; };
 		6548749A22FF983400CB3DD8 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		6548749B22FF983400CB3DD8 /* MessageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInteractor.swift; sourceTree = "<group>"; };
+		65A5813A2303B09500737F27 /* InputContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainer.swift; sourceTree = "<group>"; };
 		65FBF22C22FF9CAD004B2C53 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		65FBF22F22FF9E46004B2C53 /* MessageSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSectionController.swift; sourceTree = "<group>"; };
 		65FBF23122FF9EF8004B2C53 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
@@ -202,8 +204,17 @@
 		654874A822FF984800CB3DD8 /* Messages */ = {
 			isa = PBXGroup;
 			children = (
+				65A5813A2303B09500737F27 /* InputContainer.swift */,
 				65FBF23722FFDF12004B2C53 /* TextSize.swift */,
 				65FBF22E22FF9E05004B2C53 /* ListSectionController */,
+				654D4D29233FE7FA0029512C /* Message */,
+			);
+			path = Messages;
+			sourceTree = "<group>";
+		};
+		654D4D29233FE7FA0029512C /* Message */ = {
+			isa = PBXGroup;
+			children = (
 				6548749622FF983400CB3DD8 /* MessagePresenter.swift */,
 				6548749722FF983400CB3DD8 /* MessageWorker.swift */,
 				6548749822FF983400CB3DD8 /* MessageRouter.swift */,
@@ -211,7 +222,7 @@
 				6548749A22FF983400CB3DD8 /* MessageViewController.swift */,
 				6548749B22FF983400CB3DD8 /* MessageInteractor.swift */,
 			);
-			path = Messages;
+			path = Message;
 			sourceTree = "<group>";
 		};
 		65FBF22E22FF9E05004B2C53 /* ListSectionController */ = {
@@ -458,6 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6523E1E42300AA4000F24F3A /* ImageModel.swift in Sources */,
+				65A5813B2303B09500737F27 /* InputContainer.swift in Sources */,
 				654874A622FF983400CB3DD8 /* MessageInteractor.swift in Sources */,
 				6548746E22FF97E800CB3DD8 /* safe.xcdatamodeld in Sources */,
 				65FBF23022FF9E46004B2C53 /* MessageSectionController.swift in Sources */,
