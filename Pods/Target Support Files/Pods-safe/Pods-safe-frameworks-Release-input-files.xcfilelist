@@ -1,3 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-safe/Pods-safe-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework
+${BUILT_PRODUCTS_DIR}/PushNotifications/PushNotifications.framework
+${BUILT_PRODUCTS_DIR}/PusherChatkit/PusherChatkit.framework
+${BUILT_PRODUCTS_DIR}/PusherPlatform/PusherPlatform.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework

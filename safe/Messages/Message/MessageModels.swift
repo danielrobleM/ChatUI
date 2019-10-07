@@ -12,10 +12,17 @@
 
 import UIKit
 
-enum Messages
-{
+enum Messages {
+  // MARK: Show image picker View Controller
+  enum SendImage {
+    struct Request{
+      let image: UIImage
+    }
+    struct Response{ }
+    struct ViewModel{ }
+  }
+
   // MARK: Use cases
-  
   enum Something
   {
     struct Request

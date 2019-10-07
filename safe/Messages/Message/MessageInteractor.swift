@@ -12,30 +12,31 @@
 
 import UIKit
 
-protocol MessagesBusinessLogic
-{
+protocol MessagesBusinessLogic {
   func doSomething(request: Messages.Something.Request)
+  /// Tells interactor that user pressed gallery buttons
+  func sendImage(request: Messages.SendImage.Request)
 }
 
-protocol MessagesDataStore
-{
+protocol MessagesDataStore {
   //var name: String { get set }
 }
 
-class MessagesInteractor: MessagesBusinessLogic, MessagesDataStore
-{
+class MessagesInteractor: MessagesBusinessLogic, MessagesDataStore {
+
   var presenter: MessagesPresentationLogic?
   var worker: MessagesWorker?
-  //var name: String = ""
-  
+
   // MARK: Do something
-  
-  func doSomething(request: Messages.Something.Request)
-  {
+  func doSomething(request: Messages.Something.Request) {
     worker = MessagesWorker()
     worker?.doSomeWork()
     
     let response = Messages.Something.Response()
     presenter?.presentSomething(response: response)
+  }
+
+  func sendImage(request: Messages.SendImage.Request) {
+
   }
 }

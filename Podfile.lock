@@ -4,23 +4,36 @@ PODS:
   - IGListKit/Default (3.4.0):
     - IGListKit/Diffing
   - IGListKit/Diffing (3.4.0)
+  - PusherChatkit (1.8.1):
+    - PusherPlatform (~> 0.7.2)
+    - PushNotifications (~> 2.1.2)
+  - PusherPlatform (0.7.2)
+  - PushNotifications (2.1.2)
   - SDWebImage (5.0.6):
     - SDWebImage/Core (= 5.0.6)
   - SDWebImage/Core (5.0.6)
 
 DEPENDENCIES:
   - IGListKit (~> 3.0)
+  - PusherChatkit
   - SDWebImage (~> 5.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - IGListKit
     - SDWebImage
+  trunk:
+    - PusherChatkit
+    - PusherPlatform
+    - PushNotifications
 
 SPEC CHECKSUMS:
   IGListKit: 7a5d788e9fb746bcd402baa8e8b24bc3bd2a5a07
+  PusherChatkit: 6db76843017e946186d3c8b377d4834d82120823
+  PusherPlatform: c1084d8abc6c1ddb5af2a07214f72be2991faa9b
+  PushNotifications: 3d1ac73f4e1e9dc3de8fa8319e3e53bd00be47dc
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
 
-PODFILE CHECKSUM: fad075882fc96eb9e63a5bac1d1f5f2326cc8faf
+PODFILE CHECKSUM: 3825d8a6d87901753d3274a775db90400c777ca5
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.8.1

@@ -138,7 +138,6 @@ class MessagesViewController: UIViewController, MessagesDisplayLogic {
   }
   
   func displaySomething(viewModel: Messages.Something.ViewModel) {
-    //nameTextField.text = viewModel.name
   }
 }
 
@@ -169,42 +168,14 @@ extension MessagesViewController : ListAdapterDataSource {
   }
 }
 
-extension MessagesViewController {
-  func onButtonSend(message: String) {
-    let id = Int.random(in: 200 ..< 100000)
-    let newMessage = MessageModel(id: id, name: "Daniel", text: message, isUser: true)
-    messages.append(newMessage)
-    self.adapter.performUpdates(animated: true) { (completed) in
-      self.adapter.scroll(to: newMessage, supplementaryKinds: nil, scrollDirection: .vertical, scrollPosition: .centeredVertically, animated: true)
-    }
-  }
-
-  func onCameraButton() {
-    print("Aca se presenta la camara")
-  }
-
-  func onGalleryButton() {
-    print("Aca se presenta la galería")
-  }
-}
-
 // MARK: - Keyboard Notifications
 extension MessagesViewController {
   private func setObservers() {
     NotificationCenter.default.addObserver(self, selector: #selector(showKeyboard(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
     NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-    //    NotificationCenter.default.addObserver(self, selector: #selector(didHideKeyboard(_:)), name: UIResponder.keyboardDidHideNotification, object: nil)
-    //    NotificationCenter.default.addObserver(self, selector: #selector(didShowKeyboard(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
-    //    NotificationCenter.default.addObserver(
-    //      self,
-    //      selector: #selector(keyboardWillChangeFrame(_:)),
-    //      name: UIResponder.keyboardWillChangeFrameNotification,
-    //      object: nil
-    //    )
   }
 
   @objc private func hideKeyboard(_ notification: Foundation.Notification) {
-//    collectionView.setContentOffset(CGPoint(x: 0, y: self.collectionView.contentOffset.y + keyboardFrame.height - heightInputContainer - bottomPadding), animated: true)
     collectionView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
   }
 

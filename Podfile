@@ -8,7 +8,7 @@ target 'safe' do
   # Pods for safe
   pod 'IGListKit', '~> 3.0'
   pod 'SDWebImage', '~> 5.0'
-
+  pod 'PusherChatkit' , '~> 1.8.1'
 
   target 'safeTests' do
     inherit! :search_paths

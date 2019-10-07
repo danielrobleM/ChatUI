@@ -12,20 +12,21 @@
 
 import UIKit
 
-protocol MessagesPresentationLogic
-{
+protocol MessagesPresentationLogic {
   func presentSomething(response: Messages.Something.Response)
+  func getMessagesDisplayLogic() -> MessagesDisplayLogic?
 }
 
-class MessagesPresenter: MessagesPresentationLogic
-{
+class MessagesPresenter: MessagesPresentationLogic {
   weak var viewController: MessagesDisplayLogic?
-  
+
   // MARK: Do something
-  
-  func presentSomething(response: Messages.Something.Response)
-  {
+  func presentSomething(response: Messages.Something.Response) {
     let viewModel = Messages.Something.ViewModel()
     viewController?.displaySomething(viewModel: viewModel)
+  }
+
+  func getMessagesDisplayLogic() -> MessagesDisplayLogic?{
+    return viewController
   }
 }

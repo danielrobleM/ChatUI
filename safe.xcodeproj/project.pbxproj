@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2C12C9FAA486A471BEA5A954 /* Pods_safeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB9AABD803138A21666905EE /* Pods_safeUITests.framework */; };
+		6511D2122340FFD600301842 /* MessageViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511D2112340FFD600301842 /* MessageViewController+Actions.swift */; };
+		6511D2152341053F00301842 /* ImagePickerWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511D2142341053F00301842 /* ImagePickerWorker.swift */; };
 		6523E1E42300AA4000F24F3A /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6523E1E32300AA4000F24F3A /* ImageModel.swift */; };
 		6523E1E82300AC1C00F24F3A /* imageSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6523E1E72300AC1C00F24F3A /* imageSectionController.swift */; };
 		6523E1EA2300ACA000F24F3A /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6523E1E92300ACA000F24F3A /* ImageCollectionViewCell.swift */; };
@@ -52,6 +54,8 @@
 
 /* Begin PBXFileReference section */
 		3EE35B198C513DA7BE2956AB /* Pods_safe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_safe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6511D2112340FFD600301842 /* MessageViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MessageViewController+Actions.swift"; sourceTree = "<group>"; };
+		6511D2142341053F00301842 /* ImagePickerWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerWorker.swift; sourceTree = "<group>"; };
 		6523E1E32300AA4000F24F3A /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		6523E1E72300AC1C00F24F3A /* imageSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageSectionController.swift; sourceTree = "<group>"; };
 		6523E1E92300ACA000F24F3A /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -125,6 +129,14 @@
 				CB9AABD803138A21666905EE /* Pods_safeUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6511D2132340FFDC00301842 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6511D2112340FFD600301842 /* MessageViewController+Actions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		6523E1E52300ABB800F24F3A /* TextMessage */ = {
@@ -215,12 +227,14 @@
 		654D4D29233FE7FA0029512C /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				6511D2142341053F00301842 /* ImagePickerWorker.swift */,
 				6548749622FF983400CB3DD8 /* MessagePresenter.swift */,
 				6548749722FF983400CB3DD8 /* MessageWorker.swift */,
 				6548749822FF983400CB3DD8 /* MessageRouter.swift */,
 				6548749922FF983400CB3DD8 /* MessageModels.swift */,
 				6548749A22FF983400CB3DD8 /* MessageViewController.swift */,
 				6548749B22FF983400CB3DD8 /* MessageInteractor.swift */,
+				6511D2132340FFDC00301842 /* Extensions */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -480,8 +494,10 @@
 				654874A222FF983400CB3DD8 /* MessageModels.swift in Sources */,
 				654874A022FF983400CB3DD8 /* MessageRouter.swift in Sources */,
 				65FBF23222FF9EF8004B2C53 /* MessageModel.swift in Sources */,
+				6511D2122340FFD600301842 /* MessageViewController+Actions.swift in Sources */,
 				654874A422FF983400CB3DD8 /* MessageViewController.swift in Sources */,
 				65FBF23422FFA2DC004B2C53 /* MessageCollectionViewCell.swift in Sources */,
+				6511D2152341053F00301842 /* ImagePickerWorker.swift in Sources */,
 				6548749E22FF983400CB3DD8 /* MessageWorker.swift in Sources */,
 				6523E1E82300AC1C00F24F3A /* imageSectionController.swift in Sources */,
 			);
@@ -654,6 +670,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DDY4PJYVD4;
 				INFOPLIST_FILE = safe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -673,6 +690,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DDY4PJYVD4;
 				INFOPLIST_FILE = safe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
