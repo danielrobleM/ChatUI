@@ -15,7 +15,7 @@ final class MessageCollectionViewCell: UICollectionViewCell {
 
   let container: UIView = {
     let view = UIView()
-    view.backgroundColor = UIColor(red: 0.14, green: 0.19, blue: 0.25, alpha: 1)//.white//UIColor(red: 0.33, green: 0.41, blue: 1, alpha: 1)
+    view.backgroundColor = .secondarySystemBackground
     view.translatesAutoresizingMaskIntoConstraints = false
     view.layer.cornerRadius = 16
     view.layer.masksToBounds = false
@@ -23,7 +23,7 @@ final class MessageCollectionViewCell: UICollectionViewCell {
   }()
   let textView: UITextView = {
     let label = UITextView()
-    label.textColor = .white //UIColor(red: 0.07, green: 0.08, blue: 0.08, alpha: 1)
+    label.textColor = .label
     label.backgroundColor = .clear
     label.isScrollEnabled = false
     label.isUserInteractionEnabled = false

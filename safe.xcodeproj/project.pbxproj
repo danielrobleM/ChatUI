@@ -77,6 +77,7 @@
 		6548749922FF983400CB3DD8 /* MessageModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModels.swift; sourceTree = "<group>"; };
 		6548749A22FF983400CB3DD8 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		6548749B22FF983400CB3DD8 /* MessageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInteractor.swift; sourceTree = "<group>"; };
+		65A560E0234EBF3000F2C206 /* safe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = safe.entitlements; sourceTree = "<group>"; };
 		65A5813A2303B09500737F27 /* InputContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainer.swift; sourceTree = "<group>"; };
 		65FBF22C22FF9CAD004B2C53 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		65FBF22F22FF9E46004B2C53 /* MessageSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSectionController.swift; sourceTree = "<group>"; };
@@ -184,6 +185,7 @@
 		6548746422FF97E800CB3DD8 /* safe */ = {
 			isa = PBXGroup;
 			children = (
+				65A560E0234EBF3000F2C206 /* safe.entitlements */,
 				65FBF22C22FF9CAD004B2C53 /* Podfile */,
 				6548746522FF97E800CB3DD8 /* AppDelegate.swift */,
 				6548746F22FF97E900CB3DD8 /* Assets.xcassets */,
@@ -667,6 +669,7 @@
 			baseConfigurationReference = C57967B481C4DB5A1FF56CE3 /* Pods-safe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = safe/safe.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DDY4PJYVD4;
 				INFOPLIST_FILE = safe/Info.plist;
@@ -677,6 +680,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.droble.safe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -687,6 +691,7 @@
 			baseConfigurationReference = B95C95418B848110486B06B2 /* Pods-safe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = safe/safe.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DDY4PJYVD4;
 				INFOPLIST_FILE = safe/Info.plist;
@@ -697,6 +702,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.droble.safe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

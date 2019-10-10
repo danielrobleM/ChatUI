@@ -119,7 +119,7 @@ class MessagesViewController: UIViewController, MessagesDisplayLogic {
     self.title = "Chat"
     collectionView.alwaysBounceVertical = true
     collectionView.keyboardDismissMode = .interactive
-    collectionView.backgroundColor = UIColor(red: 0.1, green: 0.13, blue: 0.17, alpha: 1)
+    collectionView.backgroundColor = .systemBackground
     setObservers()
   }
 

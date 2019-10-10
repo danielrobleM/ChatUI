@@ -38,7 +38,7 @@ class InputContainer: UIView {
       string: "Message",
       attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.34, green: 0.39, blue: 0.44, alpha: 1)]
     )
-    textfield.backgroundColor = UIColor(red: 0.06, green: 0.09, blue: 0.13, alpha: 1)
+    textfield.backgroundColor = .tertiarySystemBackground
     textfield.layer.cornerRadius = 15
 
     return textfield
@@ -46,7 +46,7 @@ class InputContainer: UIView {
 
   let topDividerView: UIView = {
     let view = UIView()
-    view.backgroundColor = UIColor(red: 0.18, green: 0.23, blue: 0.3, alpha: 1)
+    view.backgroundColor = .opaqueSeparator
     return view
   }()
 
@@ -101,7 +101,8 @@ class InputContainer: UIView {
     sendButton.heightAnchor.constraint(equalToConstant: 32).isActive = true
     sendButton.leadingAnchor.constraint(equalTo: self.textfield.trailingAnchor, constant: 16).isActive = true
     sendButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8).isActive = true
-    self.backgroundColor = UIColor(red: 0.11, green: 0.15, blue: 0.22, alpha: 1)
+
+    self.backgroundColor = .secondarySystemBackground
 
     sendButton.addTarget(self, action: #selector(onSendButtonPressed(sender:)), for: .touchUpInside)
     cameraButton.addTarget(self, action: #selector(onCameraButtonPressed(sender:)), for: .touchUpInside)
