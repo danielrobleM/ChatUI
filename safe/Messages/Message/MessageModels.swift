@@ -14,25 +14,19 @@ import UIKit
 
 enum Messages {
   // MARK: Show image picker View Controller
-  enum SendImage {
-    struct Request{
+  enum newImage {
+    struct Request {
       let image: UIImage
     }
-    struct Response{ }
-    struct ViewModel{ }
-  }
-
-  // MARK: Use cases
-  enum Something
-  {
-    struct Request
-    {
+    struct Response {
+      let image: UIImage
+      let name: String
+      let isUser: Bool
     }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
+    struct ViewModel {
+      let image: UIImage
+      let name: String
+      let isUser: Bool
     }
   }
 }

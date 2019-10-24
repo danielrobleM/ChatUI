@@ -14,7 +14,7 @@ import UIKit
 import IGListKit
 
 protocol MessagesDisplayLogic: class {
-  func displaySomething(viewModel: Messages.Something.ViewModel)
+  func displayImage(viewModel: Messages.newImage.ViewModel)
 }
 
 class MessagesViewController: UIViewController, MessagesDisplayLogic {
@@ -131,13 +131,8 @@ class MessagesViewController: UIViewController, MessagesDisplayLogic {
     adapter.scroll(to: lastComment, supplementaryKinds: nil, scrollDirection: .vertical, scrollPosition: .centeredVertically, animated: false)
   }
 
-  // MARK: Do something
-  func doSomething() {
-    let request = Messages.Something.Request()
-    interactor?.doSomething(request: request)
-  }
-  
-  func displaySomething(viewModel: Messages.Something.ViewModel) {
+  // MARK: MessagesDisplayLogic
+  func displayImage(viewModel: Messages.newImage.ViewModel) {
   }
 }
 
@@ -185,10 +180,7 @@ extension MessagesViewController {
         return
     }
     let keyboardFrame = kbFrame.cgRectValue
-
-    let beginFrame = ((notification as NSNotification).userInfo![UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
     let endFrame = ((notification as NSNotification).userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-    let delta = (endFrame.origin.y - beginFrame.origin.y)
 
     if endFrame.height > 80 {
       self.collectionView.setContentOffset(CGPoint(x: 0, y: self.collectionView.contentOffset.y + keyboardFrame.height - heightInputContainer - bottomPadding), animated: true)

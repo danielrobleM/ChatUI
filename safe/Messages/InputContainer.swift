@@ -15,13 +15,13 @@ class InputContainer: UIView {
 
   let cameraButton: UIButton = {
     let btn = UIButton(type: .custom)
-    btn.setTitle("📷", for: .normal)
+    btn.setImage(UIImage(named: "camera"), for: .normal)
     return btn
   }()
 
   let galleryButton: UIButton = {
     let btn = UIButton(type: .custom)
-    btn.setTitle("🌌", for: .normal)
+    btn.setImage(UIImage(named: "gallery"), for: .normal)
     return btn
   }()
 
@@ -33,10 +33,10 @@ class InputContainer: UIView {
 
   let textfield: UITextField = {
     let textfield = UITextField()
-    textfield.textColor = .white
+    textfield.textColor = .label
     textfield.attributedPlaceholder = NSAttributedString(
       string: "Message",
-      attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.34, green: 0.39, blue: 0.44, alpha: 1)]
+      attributes: [NSAttributedString.Key.foregroundColor: UIColor.secondaryLabel]
     )
     textfield.backgroundColor = .tertiarySystemBackground
     textfield.layer.cornerRadius = 15
@@ -69,7 +69,8 @@ class InputContainer: UIView {
     self.addSubviews([cameraButton, galleryButton, textfield, topDividerView, sendButton])
     cameraButton.translatesAutoresizingMaskIntoConstraints = false
     cameraButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
-    cameraButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
+    //cameraButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
+    cameraButton.centerYAnchor.constraint(equalTo: self.galleryButton.centerYAnchor).isActive = true
     cameraButton.widthAnchor.constraint(equalToConstant: 32).isActive = true
     cameraButton.heightAnchor.constraint(equalToConstant: 32).isActive = true
 

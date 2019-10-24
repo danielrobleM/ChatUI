@@ -13,17 +13,20 @@
 import UIKit
 
 protocol MessagesPresentationLogic {
-  func presentSomething(response: Messages.Something.Response)
+  func presentNewImage(response: Messages.newImage.Response)
   func getMessagesDisplayLogic() -> MessagesDisplayLogic?
 }
 
 class MessagesPresenter: MessagesPresentationLogic {
   weak var viewController: MessagesDisplayLogic?
 
-  // MARK: Do something
-  func presentSomething(response: Messages.Something.Response) {
-    let viewModel = Messages.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
+  func presentNewImage(response: Messages.newImage.Response) {
+    let viewModel = Messages.newImage.ViewModel(
+      image: response.image,
+      name: response.name,
+      isUser: response.isUser
+    )
+    viewController?.displayImage(viewModel: viewModel)
   }
 
   func getMessagesDisplayLogic() -> MessagesDisplayLogic?{

@@ -44,7 +44,7 @@ extension MessagesViewController: UIImagePickerControllerDelegate, UINavigationC
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
     print("didFinishPickingMediaWithInfo")
     if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-      self.interactor?.sendImage(request: Messages.SendImage.Request(image: image))
+      self.interactor?.sendImage(request: Messages.newImage.Request(image: image))
     }
     self.dismiss(animated: true, completion: nil)
   }

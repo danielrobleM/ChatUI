@@ -13,9 +13,8 @@
 import UIKit
 
 protocol MessagesBusinessLogic {
-  func doSomething(request: Messages.Something.Request)
-  /// Tells interactor that user pressed gallery buttons
-  func sendImage(request: Messages.SendImage.Request)
+  /// Tells interactor that user send a new image
+  func sendImage(request: Messages.newImage.Request)
 }
 
 protocol MessagesDataStore {
@@ -27,16 +26,8 @@ class MessagesInteractor: MessagesBusinessLogic, MessagesDataStore {
   var presenter: MessagesPresentationLogic?
   var worker: MessagesWorker?
 
-  // MARK: Do something
-  func doSomething(request: Messages.Something.Request) {
-    worker = MessagesWorker()
-    worker?.doSomeWork()
-    
-    let response = Messages.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
-
-  func sendImage(request: Messages.SendImage.Request) {
-
+  func sendImage(request: Messages.newImage.Request) {
+    // TODO: [Repleace when exist incoming message].
+    presenter?.presentNewImage(response: Messages.newImage.Response(image: request.image, name: "Daniel", isUser: true))
   }
 }
