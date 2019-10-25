@@ -6,8 +6,8 @@
 ![Swift 5.0](https://img.shields.io/badge/Swift-5.0-orange.svg)
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)]()
 
-## example
-![demo](https://gifs.com/gif/chat-0YD63G)
+## Example
+![demo](/demo-chat-UI.gif)
 
 ## Requirements
 
