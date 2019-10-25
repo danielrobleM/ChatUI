@@ -23,3 +23,8 @@ You need to use [CocoaPods](http://cocoapods.org/) to install all the dependenci
 ```bash
 pod install
 ```
+
+## TODO 
+- [x] Basic UI
+- [ ]  Dinamic UI to input container
+- [ ] Integrate some chat sockets
