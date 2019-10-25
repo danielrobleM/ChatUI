@@ -77,6 +77,7 @@
 		6548749922FF983400CB3DD8 /* MessageModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModels.swift; sourceTree = "<group>"; };
 		6548749A22FF983400CB3DD8 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		6548749B22FF983400CB3DD8 /* MessageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInteractor.swift; sourceTree = "<group>"; };
+		6550F7C42362931300F7245A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		65A560E0234EBF3000F2C206 /* safe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = safe.entitlements; sourceTree = "<group>"; };
 		65A5813A2303B09500737F27 /* InputContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainer.swift; sourceTree = "<group>"; };
 		65FBF22C22FF9CAD004B2C53 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -163,6 +164,7 @@
 		6548745922FF97E800CB3DD8 = {
 			isa = PBXGroup;
 			children = (
+				6550F7C42362931300F7245A /* README.md */,
 				6548746422FF97E800CB3DD8 /* safe */,
 				6548747C22FF97E900CB3DD8 /* safeTests */,
 				6548748722FF97E900CB3DD8 /* safeUITests */,
