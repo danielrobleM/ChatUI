@@ -1,5 +1,5 @@
 # ChatUI
-> Simple app,  
+> Simple chat ui app, using IGListKit
 
 ![Xcode 11.0](https://img.shields.io/badge/Xcode-11.0-blue.svg)
 ![iOS 13.0](https://img.shields.io/badge/iOS-13.0-blue.svg)
